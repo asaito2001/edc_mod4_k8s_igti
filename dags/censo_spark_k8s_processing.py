@@ -109,12 +109,12 @@ with DAG(
 #        kubernetes_conn_id="kubernetes_default"
 #    )
 
-    trigger_crawler_final = PythonOperator(
-        task_id='trigger_crawler_final',
-        python_callable=trigger_crawler_final_func
-    )
+#    trigger_crawler_final = PythonOperator(
+#        task_id='trigger_crawler_final',
+#        python_callable=trigger_crawler_final_func
+#    )
 
 converte_aluno_parquet >> converte_aluno_parquet_monitor
 converte_aluno_parquet_monitor >> converte_curso_parquet >> converte_curso_parquet_monitor
 converte_curso_parquet_monitor >> converte_docente_parquet >> converte_docente_parquet_monitor
-converte_docente_parquet_monitor >> trigger_crawler_final
+converte_docente_parquet_monitor # >> trigger_crawler_final
