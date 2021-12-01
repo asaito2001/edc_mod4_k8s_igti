@@ -32,9 +32,9 @@ if __name__ == "__main__":
     df = (
         spark
         .read
-        .format("txt")
+        .format("csv")
         .options(header='true', inferSchema='true', delimiter=';')
-        .load("s3://datalake-desafio4-igti/data/landing-zone/MICRODADOS_ENADE_2017.txt")
+        .load("s3a://datalake-desafio4-igti/data/landing-zone/MICRODADOS_ENADE_2017.txt")
     )
     
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     .write
     .mode("overwrite")
     .format("parquet")
-    .save("s3://datalake-desafio4-igti/data/processing-zone/enade2017")
+    .save("s3a://datalake-desafio4-igti/data/processing-zone/enade")
     )
 
     print("*****************")
