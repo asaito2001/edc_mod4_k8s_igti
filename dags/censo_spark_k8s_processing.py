@@ -7,7 +7,7 @@ from airflow.models import Variable
 import boto3
 
 aws_access_key_id = Variable.get('aws_access_key_id')
-aws_secret_access_key = Variable.get('aws_secrets_access_key')
+aws_secret_access_key = Variable.get('aws_secret_access_key')
 glue = boto3.client('glue', region_name='us-east-1',
                     aws_access_key_id=aws_access_key_id,
                     aws_secret_access_key=aws_secret_access_key)
